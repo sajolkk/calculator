@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Calculator</title>
+
+    <style>
+      *{
+        margin: 0; padding: 0;
+      }
+      .calculator{
+        width: 100%; height: auto;
+        background: lightgreen; text-align: center; border: 5px solid black; margin-top: 150px; box-shadow: 0px 0px 30px gray;
+      }
+      #display{
+        margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 3%; width: 90%; padding: 5px; border: 1px solid red; box-shadow: 0px 0px 30px red; font-size: 20px bold; color: blue; text-align: right;
+      }
+      #keys{
+        width: 85px; height: 50px; margin-left: 2px; margin-bottom: 20px; box-shadow: 0px 0px 30px skyblue;
+      }
+      #keys:hover,#equal:hover{
+        background: yellow; font-weight: bold;
+      }
+      #equal{
+        width: 172px; height: 50px; margin-left: 2px; margin-bottom: 20px; box-shadow: 0px 0px 30px skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      
+      <div class="calculator">
+      <form action="calculator.php" method="post">
+        
+        <input type="text" id="display">
+        <br>
+        <input type="button" id="keys" value="Clear" onclick="addtoscreen('c')" >
+        <input type="button" id="keys" value="<--" onclick="backspac()" >
+        <input type="button" id="keys" value="x^3" onclick="power('3')" >
+        <input type="button" id="keys" value="+" onclick="addtoscreen('+')" >
+
+        <br>
+        <input type="button" id="keys" value="9" onclick="addtoscreen('9')" >
+        <input type="button" id="keys" value="8" onclick="addtoscreen('8')" >
+        <input type="button" id="keys" value="7" onclick="addtoscreen('7')" >
+        <input type="button" id="keys" value="-" onclick="addtoscreen('-')" >
+        <br>
+        <input type="button" id="keys" value="6" onclick="addtoscreen('6')" >
+        <input type="button" id="keys" value="5" onclick="addtoscreen('5')" >
+        <input type="button" id="keys" value="4" onclick="addtoscreen('4')" >
+        <input type="button" id="keys" value="*" onclick="addtoscreen('*')" >
+        <br>
+        <input type="button" id="keys" value="3" onclick="addtoscreen('3')" >
+        <input type="button" id="keys" value="2" onclick="addtoscreen('2')" >
+        <input type="button" id="keys" value="1" onclick="addtoscreen('1')" >
+        <input type="button" id="keys" value="/" onclick="addtoscreen('/')" >
+        <br>
+        <input type="button" id="keys" value="0" onclick="addtoscreen('0')" >
+        <input type="button" id="keys" value="." onclick="addtoscreen('.')" >
+        <input type="button" id="equal" value="=" onclick="answer()" >
+
+
+      </form>
+    </div>
+
+
+
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <script type="text/JavaScript">
+    
+    var box=document.getElementById('display');
+
+    function addtoscreen(x) {
+      box.value += x;
+
+      if (x=='c') {
+        box.value='';
+      }
+    }
+
+    function answer(){
+      x=box.value;
+      x=eval(x);
+      box.value=x;
+    }
+    function backspac() {
+      var number=box.value;
+      var len=number.length-1;
+      var newnumber=number.substring(0,len);
+      box.value=newnumber;
+    }
+    
+
+    function power(y) {
+      x=box.value;
+      x=Math.pow(x,y);
+      box.value=x;
+    }
+
+  </script>
+
+
+
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
